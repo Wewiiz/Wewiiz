@@ -1,0 +1,65 @@
+:root {
+  --ink: #fff6e4;
+  --dim: #d8c6a8;
+  --panel: rgba(40, 24, 14, 0.86);
+  --edge: #c98a4b;
+  --accent: #ffd27a;
+  --bad: #e0604a;
+  font-family: "Noto Sans Thai", system-ui, sans-serif;
+  font-size: clamp(14px, 1.25vw, 20px);
+}
+html, body { margin: 0; height: 100%; background: #1c120b; overflow: hidden; color: var(--ink); }
+#app { position: fixed; inset: 0; user-select: none; }
+#screen { display: block; width: 100vw; height: 100vh; image-rendering: pixelated; }
+[hidden] { display: none !important; }
+.panel, #hud, #objective, #inventory, #toolbar .slot, #help, #toast, #dialogue {
+  background: var(--panel); border: 2px solid var(--edge); box-shadow: 3px 3px 0 rgba(0,0,0,.45);
+}
+#left { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+#hud { padding: 8px 12px; line-height: 1.5; min-width: 15em; }
+#date { font-weight: 700; }
+#clock { font-size: 1.4em; font-weight: 700; color: var(--accent); }
+#stamina { display: flex; align-items: center; gap: 8px; }
+#stamina .bar { flex: 1; height: 10px; border: 1px solid var(--edge); background: #2a1a10; }
+#stamina i { display: block; height: 100%; background: #7cc45a; }
+#stamina.low i { background: var(--bad); }
+#money { color: var(--accent); }
+#objective { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); padding: 6px 14px; max-width: 46vw; text-align: center; }
+#objective b { color: var(--accent); }
+#inventory { position: absolute; top: 12px; right: 12px; padding: 8px 12px; line-height: 1.6; min-width: 10em; }
+#toolbar { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+#toolbar .slot { width: 5.4em; padding: 4px; text-align: center; font-size: .85em; line-height: 1.3; cursor: pointer; }
+#toolbar .slot.on { border-color: var(--accent); background: rgba(110, 66, 30, .95); }
+#toolbar .slot kbd { color: var(--accent); font-family: inherit; }
+#help { max-width: 17em; padding: 8px 12px; font-size: .8em; line-height: 1.8; }
+#help kbd, .screen kbd { display: inline-block; min-width: 1.3em; text-align: center; padding: 0 4px; margin-right: 2px; border: 1px solid var(--edge); background: #3a2416; font-family: inherit; }
+#toast { position: absolute; bottom: 5em; left: 50%; transform: translateX(-50%); max-width: 34em; padding: 8px 14px; display: none; text-align: center; }
+#toast.show { display: block; }
+#toast.error { border-color: var(--bad); }
+#dialogue { position: absolute; left: 50%; bottom: 5.5em; transform: translateX(-50%); width: min(52em, 92vw); padding: 12px 18px 10px; min-height: 6.5em; }
+#speaker { color: var(--accent); font-weight: 700; min-height: 1.4em; }
+#dtext { font-size: 1.15em; line-height: 1.7; white-space: pre-wrap; }
+#choices { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+#choices button, .screen button {
+  font: inherit; color: var(--ink); background: #3a2416; border: 2px solid var(--edge); padding: 6px 12px; text-align: left; cursor: pointer;
+}
+#choices button.sel, .screen button.sel, #choices button:hover, .screen button:hover { background: #6e421e; border-color: var(--accent); }
+.screen button:disabled { opacity: .45; cursor: default; }
+#dnext { text-align: right; font-size: .8em; color: var(--dim); }
+#fade { position: absolute; inset: 0; background: #0d0805; display: flex; align-items: center; justify-content: center; }
+#fadetext { font-size: 1.3em; line-height: 1.9; text-align: center; white-space: pre-line; max-width: 36em; padding: 0 16px; }
+.screen {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; overflow-y: auto;
+  background: radial-gradient(ellipse at center, rgba(40,24,14,.55), rgba(13,8,5,.92)); text-align: center; padding: 16px;
+}
+.screen > :first-child { margin-top: auto !important; }
+.screen > :last-child { margin-bottom: auto !important; }
+.screen h1 { font-size: 3.2em; margin: 0; color: var(--accent); text-shadow: 4px 4px 0 #5a2418; }
+.screen h2 { margin: 0 0 16px; font-weight: 400; }
+#menu, #endmenu { display: flex; flex-direction: column; gap: 8px; min-width: 18em; }
+#menu button, #endmenu button { text-align: center; font-size: 1.1em; }
+#titlemsg { color: #ffb3a3; max-width: 34em; min-height: 1.5em; }
+.small { font-size: .85em; color: var(--dim); }
+#endtext { max-width: 38em; line-height: 1.8; white-space: pre-line; }
+#endstats { background: var(--panel); border: 2px solid var(--edge); padding: 10px 18px; line-height: 1.8; text-align: left; }
+.howto { text-align: left; background: var(--panel); border: 2px solid var(--edge); padding: 12px 18px; line-height: 1.9; max-width: 40em; }

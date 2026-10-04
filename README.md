@@ -38,3 +38,7 @@ python3 -m content_planner examples/ideas-2026-11.json --check   # ตรวจ�
 ```bash
 python3 -m unittest discover -s tests -t .
 ```
+
+## เกม บ้านของเรา: Build & Harvest
+
+เกมเว็บสไตล์ PS1 อยู่ในโฟลเดอร์ [`game/`](game/README.md) (แยกจากตัววางแผนคลิป)

@@ -1,0 +1,22 @@
+:root {
+  --ink: #fff6e4;
+  --panel: rgba(40, 24, 14, 0.82);
+  --edge: #c98a4b;
+  font-family: "Noto Sans Thai", system-ui, sans-serif;
+}
+html, body { margin: 0; height: 100%; background: #1c120b; overflow: hidden; }
+#app { position: fixed; inset: 0; }
+#screen { display: block; width: 100vw; height: 100vh; image-rendering: pixelated; }
+#hud, #help, #toast {
+  position: absolute; color: var(--ink); background: var(--panel);
+  border: 2px solid var(--edge); padding: 8px 12px; font-size: 18px; line-height: 1.6;
+}
+#hud { top: 12px; left: 12px; }
+#help { bottom: 12px; left: 12px; font-size: 16px; }
+#help kbd {
+  display: inline-block; min-width: 1.4em; text-align: center; padding: 0 4px; margin-right: 4px;
+  border: 1px solid var(--edge); background: #3a2416; font-family: inherit;
+}
+#toast { top: 12px; right: 12px; max-width: 46ch; display: none; }
+#toast.show { display: block; }
+#toast.error { border-color: #e0604a; }

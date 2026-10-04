@@ -89,3 +89,60 @@ export const tex = {
       }),
     ),
 };
+
+export const tex2 = {
+  path: () =>
+    once("path", () =>
+      make(16, 9, (px, r) => {
+        for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) px(x, y, pick(r, ["#b08a5a", "#a57f50", "#bb9563", "#9c774a"]));
+      }),
+    ),
+  wetSoil: () =>
+    once("wetSoil", () =>
+      make(16, 10, (px, r) => {
+        for (let y = 0; y < 16; y++)
+          for (let x = 0; x < 16; x++) px(x, y, y % 4 === 0 ? "#2a1a10" : pick(r, ["#43291a", "#3d2517", "#4a2e1d"]));
+      }),
+    ),
+  stone: () =>
+    once("stone", () =>
+      make(16, 11, (px, r) => {
+        for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) px(x, y, pick(r, ["#8b8a85", "#7a7974", "#9a9993", "#6d6c68"]));
+      }),
+    ),
+  floor: () =>
+    once("floor", () =>
+      make(16, 12, (px, r) => {
+        for (let y = 0; y < 16; y++)
+          for (let x = 0; x < 16; x++) px(x, y, x % 4 === 0 ? "#5a3a20" : pick(r, ["#9c6b3e", "#a87545", "#946539"]));
+      }),
+    ),
+  dustyFloor: () =>
+    once("dustyFloor", () =>
+      make(16, 13, (px, r) => {
+        for (let y = 0; y < 16; y++)
+          for (let x = 0; x < 16; x++) px(x, y, x % 4 === 0 ? "#2e261e" : pick(r, ["#5b5045", "#625649", "#53493f", "#6c6052"]));
+      }),
+    ),
+  water: () =>
+    once("water", () =>
+      make(8, 14, (px, r) => {
+        for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) px(x, y, pick(r, ["#3d6f8f", "#457a9c", "#36678a"]));
+      }),
+    ),
+  hill: () =>
+    once("hill", () =>
+      make(16, 15, (px, r) => {
+        for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) px(x, y, pick(r, ["#4c6e3c", "#557a43", "#456535", "#5d7f48"]));
+      }),
+    ),
+};
+
+export const tex3 = {
+  rough: () =>
+    once("rough", () =>
+      make(16, 16, (px, r) => {
+        for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) px(x, y, pick(r, ["#6b5a36", "#5f5030", "#5b7a35", "#74613b", "#4f6b2f"]));
+      }),
+    ),
+};

@@ -1,4 +1,4 @@
-import { validateSave, type SaveData } from "./schema";
+import { migrate, validateSave, type SaveData } from "./schema";
 
 export const SLOT_KEY = "baan-khong-rao.save.v1";
 export const CORRUPT_BACKUP_KEY = "baan-khong-rao.save.corrupt-backup";
@@ -44,7 +44,7 @@ export function readSlot(kv: KV | null): ReadResult {
   } catch {
     return { status: "corrupt", message: "ไฟล์เซฟเสียหาย อ่านไม่ออก", detail: ["JSON parse failed"] };
   }
-  const v = validateSave(parsed);
+  const v = validateSave(migrate(parsed));
   if (!v.ok) return { status: "corrupt", message: "ไฟล์เซฟมีค่าผิดปกติ จึงไม่โหลดเพื่อป้องกันความเสียหาย", detail: v.errors };
   return { status: "ok", data: v.data };
 }

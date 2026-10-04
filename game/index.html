@@ -8,9 +8,44 @@
   <body>
     <div id="app">
       <canvas id="screen"></canvas>
-      <div id="hud" aria-live="polite"></div>
-      <div id="help"></div>
+
+      <div id="left">
+        <div id="hud" hidden>
+          <div id="date"></div>
+          <div id="clock"></div>
+          <div id="stamina"><span>แรง</span><div class="bar"><i></i></div></div>
+          <div id="money"></div>
+        </div>
+        <div id="help" hidden></div>
+      </div>
+      <div id="objective" hidden></div>
+      <div id="inventory" hidden></div>
+      <div id="toolbar" hidden></div>
       <div id="toast" role="status"></div>
+
+      <div id="dialogue" hidden>
+        <div id="speaker"></div>
+        <div id="dtext"></div>
+        <div id="choices"></div>
+        <div id="dnext">▼ E / Space / คลิก</div>
+      </div>
+
+      <div id="fade" hidden><div id="fadetext"></div></div>
+
+      <div id="title" class="screen">
+        <h1>บ้านของเรา</h1>
+        <h2>Build &amp; Harvest · บทที่ 1 บ้านเก่า</h2>
+        <div id="menu"></div>
+        <p id="titlemsg" role="alert"></p>
+        <p class="small">สร้างบ้าน → เปลี่ยนชีวิต → ฟื้นเมือง</p>
+      </div>
+
+      <div id="ending" class="screen" hidden>
+        <h1 id="endtitle"></h1>
+        <div id="endtext"></div>
+        <div id="endstats"></div>
+        <div id="endmenu"></div>
+      </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
